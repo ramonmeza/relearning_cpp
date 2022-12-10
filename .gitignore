@@ -1,2 +1,6 @@
 # executables
 bin/
+
+# docs that i "can't" redistribute
+docs/C++ Module I.pdf
+docs/C++ Module II.pdf
