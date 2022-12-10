@@ -1,0 +1,35 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build App",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                // compiler options
+                "-fdiagnostics-color=always",
+                //
+                "-g",
+                "${workspaceFolder}\\src\\cli.cc",
+                "${workspaceFolder}\\src\\chapter_01\\exercises.cc",
+                // include directories
+                "-I",
+                "${workspaceFolder}\\src\\chapter_01",
+                // output
+                "-o",
+                "${workspaceFolder}\\bin\\app.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Builds the application."
+        }
+    ],
+    "version": "2.0.0"
+}
