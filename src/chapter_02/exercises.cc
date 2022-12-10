@@ -1,4 +1,5 @@
 #include "exercises.hh"
+#include "utils.hh"
 
 #include <cstdlib>
 #include <iostream>
@@ -7,21 +8,6 @@ using namespace std;
 
 const unsigned int MATRIX_ROWS = 2;
 const unsigned int MATRIX_COLUMNS = 3;
-
-struct vec2
-{
-    int x;
-    int y;
-};
-
-double factorial(double n)
-{
-    if (n == 0 || n == 1)
-    {
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
 
 void print_matrix(const string name, const int (&matrix)[MATRIX_ROWS][MATRIX_COLUMNS])
 {
@@ -54,7 +40,7 @@ void chapter_02::exercise_01()
 
 void chapter_02::exercise_02()
 {
-    vec2 current_position = {0, 0};
+    utils::vec2 current_position = {0, 0};
     char input;
 
     do
@@ -118,7 +104,7 @@ void chapter_02::exercise_04()
 
     cout << "Enter a positive integer to compute the factorial of: ";
     cin >> n;
-    cout << "!" << n << " = " << factorial(n) << endl;
+    cout << "!" << n << " = " << utils::factorial(n) << endl;
 }
 
 void chapter_02::exercise_05()
