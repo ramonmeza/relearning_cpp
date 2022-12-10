@@ -11,9 +11,7 @@
                 "-g",
                 "${workspaceFolder}\\src\\cli.cc",
                 "${workspaceFolder}\\src\\chapter_01\\exercises.cc",
-                // include directories
-                "-I",
-                "${workspaceFolder}\\src\\chapter_01",
+                "${workspaceFolder}\\src\\chapter_02\\exercises.cc",
                 // output
                 "-o",
                 "${workspaceFolder}\\bin\\app.exe"
