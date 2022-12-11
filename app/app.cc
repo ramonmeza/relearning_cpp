@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "exercises/chapter_01.hh"
-#include "exercises/chapter_02.hh"
-#include "exercises/chapter_03.hh"
+#include <exercises/chapter_01.hh>
+#include <exercises/chapter_02.hh>
+#include <exercises/chapter_03.hh>
 
 using namespace std;
 

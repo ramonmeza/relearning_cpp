@@ -1,5 +1,5 @@
-#include "chapter_03.hh"
-#include "../utils/utils.hh"
+#include <chapter_03.hh>
+#include <utils/utils.hh>
 
 #include <cmath>
 #include <cstdlib>
