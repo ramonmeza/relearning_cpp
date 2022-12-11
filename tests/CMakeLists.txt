@@ -1,5 +1,3 @@
-enable_testing()
-
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/googletest" "extern/googletest")
 
 add_executable(
