@@ -14,7 +14,8 @@ add_subdirectory(app)
 
 # google tests
 if(PROJECT_NAME STREQUAL CMAKE_PROJECT_NAME)
-    set(PACKAGE_TESTS ON)
+    set(PACKAGE_TESTS ON) 
+    set(GIT_SUBMODULE ON)
 endif()
 
 option(PACKAGE_TESTS "Build the tests" ON)
