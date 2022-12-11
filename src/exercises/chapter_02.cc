@@ -1,5 +1,5 @@
-#include "exercises.hh"
-#include "utils.hh"
+#include "chapter_02.hh"
+#include "../utils/utils.hh"
 
 #include <cstdlib>
 #include <iostream>

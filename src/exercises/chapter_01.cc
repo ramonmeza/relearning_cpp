@@ -1,4 +1,5 @@
-#include "exercises.hh"
+#include "chapter_01.hh"
+#include "../utils/utils.hh"
 
 #include <cstdlib>
 #include <iostream>
@@ -54,10 +55,10 @@ void chapter_01::exercise_04()
     cout << "Enter the radius of a circle: ";
     cin >> r;
 
-    A = pi * (r * r);
+    A = utils::pi * (r * r);
     cout << "The area A of a circle with radius " << r << " = " << A << endl;
 
-    C = 2 * pi * r;
+    C = 2 * utils::pi * r;
     cout << "The circumference C of a circle with radius " << r << " = " << C << endl;
 }
 
