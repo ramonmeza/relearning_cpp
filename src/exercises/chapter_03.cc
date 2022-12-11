@@ -123,28 +123,3 @@ void chapter_03::exercise_07()
 void chapter_03::exercise_08()
 {
 }
-
-void test_random()
-{
-    int rand_val = 0;
-    int num_tests = 10000000;
-    int report_rate = 100;
-    int min = -10;
-    int max = 10;
-
-    for (unsigned int i = 0; i < num_tests; i++)
-    {
-        rand_val = utils::random(min, max);
-
-        if (rand_val < min || rand_val > max)
-        {
-            cout << "BAD " << rand_val << endl;
-            break;
-        }
-
-        if (i % (num_tests / report_rate) == 0)
-        {
-            cout << "We're still good! " << rand_val << endl;
-        }
-    }
-}
