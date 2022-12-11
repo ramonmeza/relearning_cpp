@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    chapter_03::exercise_06();
+    chapter_03::exercise_05();
 
     return EXIT_SUCCESS;
 }

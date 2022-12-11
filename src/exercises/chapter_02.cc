@@ -1,4 +1,4 @@
-#include <chapter_02.hh>
+#include <exercises/chapter_02.hh>
 #include <utils/utils.hh>
 
 #include <cstdlib>

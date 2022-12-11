@@ -1,4 +1,4 @@
-#include <chapter_03.hh>
+#include <exercises/chapter_03.hh>
 #include <utils/utils.hh>
 
 #include <cmath>
