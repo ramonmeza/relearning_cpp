@@ -1,9 +1,11 @@
 #include <cmath>
+#include <vector>
 #include <utils/utils.hh>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
 using namespace testing;
+using namespace std;
 
 namespace
 {
@@ -105,7 +107,6 @@ namespace
     {
         int rand_val = 0;
         int num_tests = 10000000;
-        int report_rate = 100;
         int min = -10;
         int max = 10;
 
@@ -136,5 +137,115 @@ namespace
         int num_elements = sizeof(values) / sizeof(int);
         utils::bubble_sort(values, num_elements);
         ASSERT_THAT(values, ElementsAre(1, 5, 12, 15, 17, 21));
+    }
+
+    /// @brief Positive test case for dice(int&, int&)
+    TEST(dice_by_reference, Positive)
+    {
+        int num_tests = 10000000;
+
+        int die1, die2 = 0;
+
+        for (unsigned int i = 0; i < num_tests; i++)
+        {
+            utils::dice(&die1, &die2);
+            EXPECT_GE(die1, 1);
+            EXPECT_LE(die1, 6);
+            EXPECT_GE(die2, 1);
+            EXPECT_LE(die2, 6);
+        }
+    }
+
+    /// @brief Positive test case for dice(int*, int*)
+    TEST(dice_by_pointer, Positive)
+    {
+        int num_tests = 10000000;
+
+        int die1, die2 = 0;
+
+        for (unsigned int i = 0; i < num_tests; i++)
+        {
+            utils::dice(die1, die2);
+            EXPECT_GE(die1, 1);
+            EXPECT_LE(die1, 6);
+            EXPECT_GE(die2, 1);
+            EXPECT_LE(die2, 6);
+        }
+    }
+
+    /// @brief Positive test case for random_array_fill
+    TEST(random_array_fill, Positive)
+    {
+        int values[] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        int num_elements = sizeof(values) / sizeof(int);
+
+        utils::random_array_fill(values, num_elements);
+
+        for (unsigned int i = 0; i < num_elements; i++)
+        {
+            EXPECT_NE(values[i], -1);
+        }
+    }
+
+    /// @brief Positive test case for random_vector_fill
+    TEST(random_vector_fill, Positive)
+    {
+        vector<int> values = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+        utils::random_vector_fill(values);
+
+        for (auto itr = values.begin(); itr != values.end(); itr++)
+        {
+            EXPECT_NE(*itr, -1);
+        }
+    }
+
+    /// @brief Positive test case for print_array(int[], int)
+    TEST(print_array, Positive)
+    {
+        int values1[] = {1, 2, 3};
+        int values2[] = {0, 5, -1, -46};
+        int values3[] = {123, -456, 789, 22, 5};
+
+        EXPECT_EQ(utils::print_array(values1, sizeof(values1) / sizeof(int)), "1, 2, 3");
+        EXPECT_EQ(utils::print_array(values2, sizeof(values2) / sizeof(int)), "0, 5, -1, -46");
+        EXPECT_EQ(utils::print_array(values3, sizeof(values3) / sizeof(int)), "123, -456, 789, 22, 5");
+    }
+
+    /// @brief Positive test case for print_vector
+    TEST(print_vector, Positive)
+    {
+        vector<int> values1 = {1, 2, 3};
+        vector<int> values2 = {0, 5, -1, -46};
+        vector<int> values3 = {123, -456, 789, 22, 5};
+
+        EXPECT_EQ(utils::print_vector(values1), "1, 2, 3");
+        EXPECT_EQ(utils::print_vector(values2), "0, 5, -1, -46");
+        EXPECT_EQ(utils::print_vector(values3), "123, -456, 789, 22, 5");
+    }
+
+    /// @brief Positive test case for quadratic_formula
+    TEST(quadratic_formula, Positive)
+    {
+        float r1, i1, r2, i2 = -1;
+        EXPECT_TRUE(utils::quadratic_formula(1, -1, -6, r1, i1, r2, i2));
+        EXPECT_EQ(r1, 3);
+        EXPECT_EQ(i1, 0);
+        EXPECT_EQ(r2, -2);
+        EXPECT_EQ(i2, 0);
+
+        r1 = i1 = r2 = i2 = -1;
+        EXPECT_TRUE(utils::quadratic_formula(1, -2, 1, r1, i1, r2, i2));
+        EXPECT_EQ(r1, 1);
+        EXPECT_EQ(i1, 0);
+        EXPECT_EQ(r2, 1);
+        EXPECT_EQ(i2, 0);
+
+        r1 = i1 = r2 = i2 = -1;
+        EXPECT_FALSE(utils::quadratic_formula(1, 2, 5, r1, i1, r2, i2));
+        EXPECT_EQ(r1, -1);
+        EXPECT_EQ(i1, 2);
+        EXPECT_EQ(r2, -1);
+        EXPECT_EQ(i2, -2);
     }
 }

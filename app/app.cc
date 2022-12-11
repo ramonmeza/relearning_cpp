@@ -10,7 +10,9 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    chapter_04::exercise_02();
+    srand(time(0));
+
+    chapter_04::exercise_04();
 
     return EXIT_SUCCESS;
 }

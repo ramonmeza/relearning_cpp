@@ -213,14 +213,7 @@ void chapter_03::exercise_07()
 
     // print list
     cout << "{ ";
-    for (unsigned int i = 0; i < num_elements; i++)
-    {
-        cout << values[i];
-        if (i != num_elements - 1)
-        {
-            cout << ", ";
-        }
-    }
+    utils::print_array(values, num_elements);
     cout << " }" << endl;
 
     // user search loop
@@ -257,27 +250,9 @@ void chapter_03::exercise_08()
         cin >> values[i];
     }
 
-    cout << "Unsorted List = ";
-    for (unsigned int i = 0; i < num_elements; i++)
-    {
-        cout << values[i];
-        if (i < num_elements - 1)
-        {
-            cout << ", ";
-        }
-    }
-    cout << endl;
+    cout << "Unsorted List = " << utils::print_array(values, num_elements) << endl;
 
     cout << "Sorting..." << endl;
     utils::bubble_sort(values, num_elements);
-    cout << "Sorted List = ";
-    for (unsigned int i = 0; i < num_elements; i++)
-    {
-        cout << values[i];
-        if (i < num_elements - 1)
-        {
-            cout << ", ";
-        }
-    }
-    cout << endl;
+    cout << "Sorted List = " << utils::print_array(values, num_elements) << endl;
 }

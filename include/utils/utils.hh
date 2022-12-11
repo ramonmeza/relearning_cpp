@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 namespace utils
 {
@@ -62,9 +63,8 @@ namespace utils
     /// @brief Generate a random number between given low and high values
     /// @param low The minimum value that can be generated, inclusive
     /// @param high The maximum value that can be generated, inclusive
-    /// @param seed The seed for the random generator, defaults to -1. If -1 then seed won't be set
     /// @return A random value between the given minimum and maximum values, inclusive
-    int random(int low, int high, int seed = -1);
+    int random(int low, int high);
 
     /// @brief Binary search for a value in a given array, returning the index of the element found
     /// @param data Array to search through
@@ -77,4 +77,45 @@ namespace utils
     /// @param data Array to sort
     /// @param num_elements The amount of elements in the given array
     void bubble_sort(int data[], int num_elements);
+
+    /// @brief Roll dice and return their values through reference paramaeters
+    /// @param die1 Reference to the int to put the result of the die 1 roll into
+    /// @param die2 Reference to the int to put the result of the die 2 roll into
+    void dice(int &die1, int &die2);
+
+    /// @brief Roll dice and return their values through reference paramaeters
+    /// @param die1 Pointer to the int to put the result of the die 1 roll into
+    /// @param die2 Pointer to the int to put the result of the die 2 roll into
+    void dice(int *die1, int *die2);
+
+    /// @brief Fill an array with random values [0, 100]
+    /// @param array Pointer to the array
+    /// @param size Number of elements in the array
+    void random_array_fill(int array[], int size);
+
+    /// @brief Fill an array with random values [0, 100]
+    /// @param array Reference to the vector to fill
+    void random_vector_fill(std::vector<int> &array);
+
+    /// @brief Print an array with comma separated elements
+    /// @param array Pointer to the array
+    /// @param size Number of elements in the array
+    /// @return The vector elements (comma-separated)
+    std::string print_array(int array[], int size);
+
+    /// @brief Print a vector with comma separated elements
+    /// @param vec Reference to the vector to print
+    /// @return The vector elements (comma-separated)
+    std::string print_vector(std::vector<int> &vec);
+
+    /// @brief Solve for the quadratic equation, given coefficients
+    /// @param a Coefficient of the quadratic equation
+    /// @param b Coefficient of the quadratic equation
+    /// @param c Coefficient of the quadratic equation
+    /// @param r1 Denotes the real part of solution 1
+    /// @param i1 Denotes the imaginary part of solution 1
+    /// @param r2 Denotes the real part of solution 2
+    /// @param i2 Denotes the imaginary part of solution 2
+    /// @return If the function contains an imaginary part then return `false`, otherwise return `true`
+    bool quadratic_formula(float a, float b, float c, float &r1, float &i1, float &r2, float &i2);
 }

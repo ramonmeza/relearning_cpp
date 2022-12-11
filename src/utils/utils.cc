@@ -1,6 +1,7 @@
 #include <utils/utils.hh>
 
 #include <cmath>
+#include <ctime>
 #include <sstream>
 
 using namespace std;
@@ -76,14 +77,9 @@ string utils::print_vec3(const vec3 &v)
     return ss.str();
 }
 
-int utils::random(int low, int high, int seed)
+int utils::random(int low, int high)
 {
-    if (seed != -1)
-    {
-        srand(seed);
-    }
-
-    return (rand() % (high + 1)) - (rand() % (low - 1));
+    return low + (rand() % (high - low + 1)); // +1 to include high value
 }
 
 int utils::binary_search(int data[], int num_elements, int search_key)
@@ -139,4 +135,88 @@ void utils::bubble_sort(int data[], int num_elements)
         }
         sub_array_end = next_end;
     }
+}
+
+void utils::dice(int &die1, int &die2)
+{
+    die1 = utils::random(1, 6);
+    die2 = utils::random(1, 6);
+}
+
+void utils::dice(int *die1, int *die2)
+{
+    *die1 = utils::random(1, 6);
+    *die2 = utils::random(1, 6);
+}
+
+void utils::random_array_fill(int array[], int size)
+{
+    for (unsigned int i = 0; i < size; i++)
+    {
+        array[i] = utils::random(0, 100);
+    }
+}
+
+void utils::random_vector_fill(std::vector<int> &vec)
+{
+    for (auto itr = vec.begin(); itr != vec.end(); itr++)
+    {
+        *itr = utils::random(0, 100);
+    }
+}
+
+string utils::print_array(int array[], int size)
+{
+    ostringstream ss;
+    for (unsigned int i = 0; i < size; i++)
+    {
+        ss << array[i];
+        if (i != size - 1)
+        {
+            ss << ", ";
+        }
+    }
+    return ss.str();
+}
+
+std::string utils::print_vector(std::vector<int> &vec)
+{
+    ostringstream ss;
+    for (auto itr = vec.begin(); itr != vec.end(); itr++)
+    {
+        ss << *itr;
+        if (itr < vec.end() - 1)
+        {
+            ss << ", ";
+        }
+    }
+    return ss.str();
+}
+
+bool utils::quadratic_formula(float a, float b, float c, float &r1, float &i1, float &r2, float &i2)
+{
+    float s, x1, x2, i_num = 0;
+    r1 = r2 = i1 = i2 = 0;
+
+    s = pow(b, 2) - 4 * a * c;
+
+    if (s < 0)
+    {
+        i_num = sqrt(abs(s));
+        r1 = -b / (2 * a);
+        i1 = i_num / (2 * a);
+        r2 = -b / (2 * a);
+        i2 = -i1;
+        return false;
+    }
+    else
+    {
+        r1 = (-b + sqrt(abs(s))) / (2 * a);
+        i1 = 0;
+        r2 = (-b - sqrt(abs(s))) / (2 * a);
+        i2 = 0;
+        return true;
+    }
+
+    return false;
 }

@@ -2,6 +2,7 @@
 #include <utils/utils.hh>
 
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
@@ -59,12 +60,68 @@ void chapter_04::exercise_01()
 
 void chapter_04::exercise_02()
 {
+    int die1 = 0;
+    int die2 = 0;
+
+    cout << "I don't know craps and really don't care about implementing a dice game..." << endl;
+    cout << "Here's some pointer and reference parameters." << endl
+         << endl;
+
+    cout << "before die1: " << die1 << endl;
+    cout << "before die2: " << die2 << endl;
+    utils::dice(&die1, &die2);
+    cout << "after die1: " << die1 << "(" << &die1 << ")" << endl;
+    cout << "after die2: " << die2 << "(" << &die2 << ")" << endl;
+
+    die1 = 0;
+    die2 = 0;
+    cout << "before die1: " << die1 << endl;
+    cout << "before die2: " << die2 << endl;
+    utils::dice(die1, die2);
+    cout << "after die1: " << die1 << "(" << &die1 << ")" << endl;
+    cout << "after die2: " << die2 << "(" << &die2 << ")" << endl;
 }
 
 void chapter_04::exercise_03()
 {
+    unsigned int num_elements = 0;
+    int *values = nullptr;
+
+    cout << "Enter the size of an array to create: ";
+    cin >> num_elements;
+
+    cout << "Creating array and filling it with random numbers..." << endl;
+    values = new int[num_elements];
+    utils::random_array_fill(values, num_elements);
+
+    cout << "Array = " << utils::print_array(values, num_elements) << endl;
+
+    delete values;
 }
 
 void chapter_04::exercise_04()
 {
+    float a, b, c, r1, i1, r2, i2 = 0;
+    char imaginary_character = '\0';
+    char operator_character = '+';
+
+    cout << "Provide coefficients for quadratic equation:" << endl;
+    cout << "a = ";
+    cin >> a;
+    cout << "b = ";
+    cin >> b;
+    cout << "c = ";
+    cin >> c;
+
+    utils::quadratic_formula(a, b, c, r1, i1, r2, i2);
+
+    cout << "Coefficients a=" << a << ", b=" << b << ", c=" << c << endl;
+
+    imaginary_character = (i1 != 0) ? 'i' : '\0';
+    operator_character = (i1 > 0) ? '+' : '-';
+    cout << "Solution 1 = " << r1 << operator_character << abs(i1) << imaginary_character << endl;
+
+    imaginary_character = (i2 != 0) ? 'i' : '\0';
+    operator_character = (i2 > 0) ? '+' : '-';
+    cout << "Solution 2 = " << r2 << operator_character << abs(i2) << imaginary_character << endl;
 }
