@@ -114,4 +114,15 @@ namespace
             EXPECT_LE(rand_val, max);
         }
     }
+
+    /// @brief Positive test case for binary_search
+    TEST(binary_search, Positive)
+    {
+        int values[] = {1, 4, 5, 6, 9, 14, 21, 23, 28, 31, 35, 42, 46, 50, 53, 57, 62, 63, 65, 74, 79, 89, 95};
+        int num_elements = sizeof(values) / sizeof(int);
+
+        EXPECT_EQ(utils::binary_search(values, num_elements, 21), 6);
+        EXPECT_EQ(utils::binary_search(values, num_elements, 50), 13);
+        EXPECT_EQ(utils::binary_search(values, num_elements, 0), -1);
+    }
 }

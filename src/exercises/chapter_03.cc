@@ -207,6 +207,42 @@ void chapter_03::exercise_06()
 
 void chapter_03::exercise_07()
 {
+    int values[] = {1, 4, 5, 6, 9, 14, 21, 23, 28, 31, 35, 42, 46, 50, 53, 57, 62, 63, 65, 74, 79, 89, 95};
+    int num_elements = sizeof(values) / sizeof(int);
+    int search_key, found_index;
+
+    // print list
+    cout << "{ ";
+    for (unsigned int i = 0; i < num_elements; i++)
+    {
+        cout << values[i];
+        if (i != num_elements - 1)
+        {
+            cout << ", ";
+        }
+    }
+    cout << " }" << endl;
+
+    // user search loop
+    do
+    {
+        cout << "Enter a search key (or '-1' to exit): ";
+        cin >> search_key;
+
+        if (search_key != -1)
+        {
+            found_index = utils::binary_search(values, num_elements, search_key);
+
+            if (found_index < 0)
+            {
+                cout << search_key << " not found in list." << endl;
+            }
+            else
+            {
+                cout << search_key << " is in position " << found_index << endl;
+            }
+        }
+    } while (search_key != -1);
 }
 
 void chapter_03::exercise_08()
