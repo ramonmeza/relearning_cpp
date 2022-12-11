@@ -2,6 +2,7 @@
 
 This repo is just for me to complete the exercises provided by "C++ Programming for Games" by Frank Luna.
 
+
 ## Finding the book
 
 [C++ Game Programming Module I](https://theswissbay.ch/pdf/Gentoomen%20Library/Game%20Development/Programming/C%2B%2B%20Module%20I.pdf)
@@ -10,8 +11,11 @@ This repo is just for me to complete the exercises provided by "C++ Programming 
 
 ## Environment Variables
 
-`CC`: `path to gcc`
-`CXX`: `path to g++`
+| **Key** | **Value** |
+|---|---|
+| CC | Path to GCC |
+| CXX | Path to G++ |
+
 
 ## Notes
 
