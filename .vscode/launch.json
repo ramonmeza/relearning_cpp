@@ -7,7 +7,15 @@
             "request": "launch",
             // Resolved by CMake Tools:
             "program": "${command:cmake.launchTargetPath}",
-            "args": [],
+            "args": [
+                "--build",
+                "${command:cmake.buildDirectory}",
+                "--config",
+                "Debug",
+                "--target",
+                "app",
+                "--"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [
@@ -16,10 +24,6 @@
                     // it gets resolved by CMake Tools:
                     "name": "PATH",
                     "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
-                },
-                {
-                    "name": "OTHER_VALUE",
-                    "value": "Something something"
                 }
             ],
             "MIMode": "gdb",

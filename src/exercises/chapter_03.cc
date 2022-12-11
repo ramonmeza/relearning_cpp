@@ -114,6 +114,95 @@ void chapter_03::exercise_05()
 
 void chapter_03::exercise_06()
 {
+    int slot_values[3];
+    int input, bet_amount, winnings;
+    int player_bank = 1000;
+
+    do
+    {
+        // get operation to perform
+        cout << "Player Bank: $" << player_bank << endl;
+        cout << "List of operations:" << endl;
+        cout << "\t1.) Play slots" << endl;
+        cout << "\t2.) Exit" << endl;
+        cout << "Select an operation: ";
+        cin >> input;
+
+        if (input == 1)
+        {
+            // get player's bet amount
+            do
+            {
+                cout << "Enter your bet: $";
+                cin >> bet_amount;
+
+                if (bet_amount > player_bank || bet_amount <= 0)
+                {
+                    cout << "You did not enter a valid bet." << endl;
+                }
+                else
+                {
+                    break;
+                }
+            } while (true);
+
+            // calculate slot results
+            slot_values[0] = utils::random(2, 7);
+            slot_values[1] = utils::random(2, 7);
+            slot_values[2] = utils::random(2, 7);
+            cout << "Slot Results: " << slot_values[0] << " " << slot_values[1] << " " << slot_values[2] << endl;
+
+            // calculate results
+            if (slot_values[0] == slot_values[1] && slot_values[0] == slot_values[2])
+            {
+                // 3 matches
+                if (slot_values[0] == 7)
+                {
+                    // big winnings
+                    cout << "!JACKPOT!" << endl;
+                    winnings = bet_amount * 10;
+                }
+                else
+                {
+                    // mid winnings
+                    cout << "You Win: 3 of a kind!" << endl;
+                    winnings = bet_amount * 5;
+                }
+            }
+            else if (slot_values[0] == slot_values[1] || slot_values[0] == slot_values[2] || slot_values[1] == slot_values[2])
+            {
+                // 2 matches
+                cout << "You Win: 2 of a kind!" << endl;
+                winnings = bet_amount * 3;
+            }
+            else
+            {
+                cout << "You lost!" << endl;
+                // take away bet amount
+                winnings = -bet_amount;
+            }
+
+            // apply winnings
+            player_bank += winnings;
+        }
+        else if (input == 2)
+        {
+            break;
+        }
+        else
+        {
+            cout << "Invalid selection, try again..." << endl;
+        }
+        cout << endl;
+    } while (player_bank > 0);
+
+    if (player_bank <= 0)
+    {
+        cout << "Better luck next time ;)" << endl;
+    }
+
+    cout << "Thanks for playing!" << endl;
+    cout << "Exiting..." << endl;
 }
 
 void chapter_03::exercise_07()
