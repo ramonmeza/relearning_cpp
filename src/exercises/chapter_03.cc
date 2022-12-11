@@ -247,4 +247,37 @@ void chapter_03::exercise_07()
 
 void chapter_03::exercise_08()
 {
+    const int num_elements = 10;
+    int values[num_elements];
+
+    cout << "Enter ten unsorted integers..." << endl;
+    for (unsigned int i = 0; i < num_elements; i++)
+    {
+        cout << "[" << i << "] = ";
+        cin >> values[i];
+    }
+
+    cout << "Unsorted List = ";
+    for (unsigned int i = 0; i < num_elements; i++)
+    {
+        cout << values[i];
+        if (i < num_elements - 1)
+        {
+            cout << ", ";
+        }
+    }
+    cout << endl;
+
+    cout << "Sorting..." << endl;
+    utils::bubble_sort(values, num_elements);
+    cout << "Sorted List = ";
+    for (unsigned int i = 0; i < num_elements; i++)
+    {
+        cout << values[i];
+        if (i < num_elements - 1)
+        {
+            cout << ", ";
+        }
+    }
+    cout << endl;
 }

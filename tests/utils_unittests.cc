@@ -1,6 +1,9 @@
 #include <cmath>
 #include <utils/utils.hh>
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
+
+using namespace testing;
 
 namespace
 {
@@ -124,5 +127,14 @@ namespace
         EXPECT_EQ(utils::binary_search(values, num_elements, 21), 6);
         EXPECT_EQ(utils::binary_search(values, num_elements, 50), 13);
         EXPECT_EQ(utils::binary_search(values, num_elements, 0), -1);
+    }
+
+    /// @brief Positive test case for bubble_sort
+    TEST(bubble_sort, Positive)
+    {
+        int values[] = {12, 5, 21, 1, 15, 17};
+        int num_elements = sizeof(values) / sizeof(int);
+        utils::bubble_sort(values, num_elements);
+        ASSERT_THAT(values, ElementsAre(1, 5, 12, 15, 17, 21));
     }
 }

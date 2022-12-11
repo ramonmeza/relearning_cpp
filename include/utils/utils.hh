@@ -72,4 +72,9 @@ namespace utils
     /// @param search_key The value of the item to find
     /// @return The index of the value found, if the item is not found then `-1` is returned
     int binary_search(int data[], int num_elements, int search_key);
+
+    /// @brief Use Bubble Sort algorithm to sort given array in ascending order
+    /// @param data Array to sort
+    /// @param num_elements The amount of elements in the given array
+    void bubble_sort(int data[], int num_elements);
 }

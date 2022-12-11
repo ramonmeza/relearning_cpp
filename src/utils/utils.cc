@@ -118,3 +118,25 @@ int utils::binary_search(int data[], int num_elements, int search_key)
 
     return -1;
 }
+
+void utils::bubble_sort(int data[], int num_elements)
+{
+    int next_end, temp = 0;
+    int sub_array_end = num_elements - 1;
+
+    while (sub_array_end > 0)
+    {
+        next_end = 0;
+        for (unsigned int j = 0; j < sub_array_end; j++)
+        {
+            if (data[j] > data[j + 1])
+            {
+                temp = data[j];
+                data[j] = data[j + 1];
+                data[j + 1] = temp;
+                next_end = j;
+            }
+        }
+        sub_array_end = next_end;
+    }
+}
