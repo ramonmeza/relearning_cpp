@@ -10,4 +10,10 @@ This repo is just for me to complete the exercises provided by "C++ Programming 
 
 ## Environment Variables
 
+`CC`: `path to gcc`
 `CXX`: `path to g++`
+
+## Notes
+
+* `CMake` is a little strange, but it definitely will be useful.
+* `VSCode` is goated.
