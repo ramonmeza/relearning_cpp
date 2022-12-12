@@ -1,3 +1,6 @@
+#ifndef CHAPTER_03_HH
+#define CHAPTER_03_HH
+
 namespace chapter_03
 {
     void exercise_01();
@@ -9,3 +12,5 @@ namespace chapter_03
     void exercise_07();
     void exercise_08();
 }
+
+#endif // CHAPTER_03_HH
